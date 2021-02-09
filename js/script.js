@@ -1,3 +1,4 @@
+{
 const result = {
     player: 0,
     computer: 0
@@ -9,7 +10,7 @@ const computer = document.getElementById('computer-score');
 player.innerHTML = result.player;
 computer.innerHTML = result.computer;
 
-function playGame(playerInput) {
+const playGame = function(playerInput) {
     clearMessages();
     // computerMove
     let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -27,7 +28,7 @@ function playGame(playerInput) {
     console.log(result);
 }
 
-function getMoveName(argMoveId) {
+const getMoveName = function(argMoveId) {
     if(argMoveId == 1) {
         return 'kamień';
     } else if (argMoveId == 2) {
@@ -41,7 +42,7 @@ function getMoveName(argMoveId) {
 }
 
 //score
-function displayResult(argComputerMove, argPlayerMove) {
+const displayResult = function(argComputerMove, argPlayerMove) {
     if (argComputerMove == 'kamień' && argPlayerMove == 'papier') {
         showResults('player');
     } else if (argComputerMove == 'kamień' && argPlayerMove == 'nożyce') {
@@ -61,7 +62,7 @@ function displayResult(argComputerMove, argPlayerMove) {
     }
 }
 
-function showResults(winner) {
+const showResults = function(winner) {
     if (winner === 'player') {
         result.player++;
         player.innerHTML = result.player;
@@ -84,3 +85,4 @@ document.getElementById('play-paper').addEventListener('click', function(){
 document.getElementById('play-scissors').addEventListener('click', function() {
     playGame(3);
 });
+}
